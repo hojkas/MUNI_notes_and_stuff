@@ -24,7 +24,7 @@ Dohromady 120b. Na projití třeba 61b.
 
 **Business inteligence pyramida**
 
-![image-20210916102126470](img_src\image-20210916102126470.png)
+![image-20210916102126470](img_src/image-20210916102126470.png)
 
 **BI** - proces analyzování dat a prezentování výsledků pro business manažery (aby udělali informovaná rozhodnutí)
 
@@ -48,7 +48,7 @@ Zároveň se BI dá chápat jako sada nástrojů a aplikací pro:
 
 **BI architektura**
 
-![image-20210916103920311](img_src\image-20210916103920311.png)
+![image-20210916103920311](img_src/image-20210916103920311.png)
 
 Staging data: DB pro výsledek staging, aby se tam nahrála data před tím, než se propíšou do storage (Proč? Můžou ve staging nastat chyby, musely by se řešit rollbacky a tak, toto je o dost snazší)
 
@@ -69,7 +69,7 @@ Data musí být snadná na porozumnění pro tyto účely. Workloads/access patt
 
 ### DW definice
 
-![image-20210916104830751](img_src\image-20210916104830751.png)
+![image-20210916104830751](img_src/image-20210916104830751.png)
 
 **Subject oriented**: Data jsou v DW organizované tak, aby elementy dat týkající se stejného objektu/události byly u sebe
 
@@ -79,7 +79,7 @@ Data musí být snadná na porozumnění pro tyto účely. Workloads/access patt
 
 **Time-varying**: Data v DW jsou trackovaná a ukládaná, takže reporty se mění během času. DW počítají s dlouhodobým ukládáním dat v rámci let (vs OS, kde to je spíš na bází měsíců)
 
-![image-20210916105535072](img_src\image-20210916105535072.png)
+![image-20210916105535072](img_src/image-20210916105535072.png)
 
 ### Architektura DW - OLTP vs OLAP
 
@@ -89,7 +89,7 @@ Data musí být snadná na porozumnění pro tyto účely. Workloads/access patt
 
 **OLAP (Online Analytic Processing)** - data pro reporting a dělání rozhodnutí, typicky read-only access, potřebuje archivovaná data, až tak nevadí lehce zastaralá data, z perpektivy databáze dlouhé operace read-only charakteru, dotazy neznáme předem a často komplexní, nutnost projít velké množství dat.
 
-![image-20210916110716371](img_src\image-20210916110716371.png)
+![image-20210916110716371](img_src/image-20210916110716371.png)
 
 **Alternativní architektury**
 
@@ -114,7 +114,7 @@ Data Marts a DW můžou být v jiné lokaci.
 
 Extract - Transform - Load
 
-<img src="img_src\image-20210916111650009.png" style="height:200px;">
+<img src="img_src/image-20210916111650009.png" style="height:200px;">
 
 ### Připravení DW
 
@@ -127,7 +127,7 @@ Extract - Transform - Load
 
 ### Životní cyklus DW
 
-<img src="img_src\image-20210916112208659.png" style="height:200px;">
+<img src="img_src/image-20210916112208659.png" style="height:200px;">
 
 1. analýza nákladů, požadavků, týmu, rizik, jestli je to potřeba…
 2. analýza možných architektonických řešení, nástrojů, přístupu
@@ -172,7 +172,7 @@ Fakta = “naměřené hodnoty” (počet, teplota, cena)
 
 Když chceme uložit informace o business procesech, ukládáme nějaké “business process measurement events” - lze ukládat mnoho položek a různý level detailů, otázka je co je potřebova pro náš konkrétní účel (např. pro EET není potřeba zaznamenávat jednoltivé položky nákupu).
 
-![image-20210923100920839](img_src\image-20210923100920839.png)
+![image-20210923100920839](img_src/image-20210923100920839.png)
 
 Takováta data se běžně analyzují např. v tzv kontingenčních tabulkách (pivot tables) v spreadsheet SW.
 
@@ -235,11 +235,11 @@ Takže se vytvoří nový umělý klíč - surrogate klíč.
 
 #### Redundance v DW
 
-![image-20210923112135604](img_src\image-20210923112135604.png)
+![image-20210923112135604](img_src/image-20210923112135604.png)
 
 ### Star schema
 
-![image-20210923104729301](img_src\image-20210923104729301.png)
+![image-20210923104729301](img_src/image-20210923104729301.png)
 
 Obsahuje primární klíče a surrogate keys (místo primárních klíčů z původních tabulek).
 
@@ -264,7 +264,7 @@ Toto pak dost často kickstartne další dotazy na další informace, pomáhá s
 
 Nalezení sdílených dimenzí, dimenze = sloupec, fact table = řádek, pomáhá určit si co co potřebuje a co se sdílí.
 
-![image-20210923110222625](img_src\image-20210923110222625.png)
+![image-20210923110222625](img_src/image-20210923110222625.png)
 
 ### Slowly Changing Dimension (SCD)
 
@@ -287,13 +287,13 @@ Hodnoty dimenzí se mohou měnit. Jak se se změnou systém vyrovná záleží n
 
 ### Multidimenzionální model
 
-![image-20210930100454447](img_src\image-20210930100454447.png)
+![image-20210930100454447](img_src/image-20210930100454447.png)
 
 Data rozdělena na fakta a dimenze. Fakta mohou být agregovány (např. sales price), redundance nevadí, fakta jsou v podobně *multidimenzionální kostky* (spíš pro představu než že by to tak vždy bylo).
 
 #### Multidimenzionální kostka
 
-<img src="img_src\image-20210930100614771.png" style="width: 300px;">
+<img src="img_src/image-20210930100614771.png" style="width: 300px;">
 
 Na obrázku dimenze x - time, y - product, z - city.
 
@@ -315,13 +315,13 @@ Hodnoty dimenzí mohou mít řazení, které používáme pro porovnání dat v 
 
 Na popsání multidimenzionálního modelu není dobře definovaný standard. Dá se použít například takováto notace, popř UML-ish notace, atd.
 
-![image-20210930101320022](img_src\image-20210930101320022.png)
+![image-20210930101320022](img_src/image-20210930101320022.png)
 
 
 
 ### OLAP systémy
 
-![image-20210930101434658](img_src\image-20210930101434658.png)
+![image-20210930101434658](img_src/image-20210930101434658.png)
 
 Jak OLAP realizovat? Můžeme vzít v podstattě relační databázi a vytvořit relační OLAP -> ROLAP. Nebo udělat special Multidimenzionální OLAP (MOLAP). Popř. hybridní HOLAP.
 
@@ -360,7 +360,7 @@ Rychlá interaktivní analýza velkého mnozžství dat.
 
 #### Dotazy v OLAP
 
-![image-20210930103152524](img_src\image-20210930103152524.png)
+![image-20210930103152524](img_src/image-20210930103152524.png)
 
 **Roll-up** 
 
@@ -390,11 +390,11 @@ Slice - vezmeme přímo jednu možnost v dimenzi, dice - vezmeme range.
 
 Přerovnání dat pro účely zobrazení. Nejjednoduší je vybrání dvou dimenzí pro agregaci nějaké hodnoty. Efektivní jen pro hustá data.
 
-![image-20210930104743939](img_src\image-20210930104743939.png)
+![image-20210930104743939](img_src/image-20210930104743939.png)
 
 **Kontigenční tabulka (pivot) v ROLAPu**
 
-![image-20210930104816924](img_src\image-20210930104816924.png)
+![image-20210930104816924](img_src/image-20210930104816924.png)
 
 ALL je zástupná hodnota pro všechny možnosti. Informace stejná jako v pivotu normálním, je více efektivní na použití místa pro řídké hodnoty (řádek tam prostě není, zatímco v klasik pivotu tam furt je ale máme prázdné buňky).
 
@@ -418,7 +418,7 @@ Problém: Často čteme obrovské množství dat kvůli malému množství, kter
 
 ### Typy indexů
 
-![image-20211007101229185](img_src\image-20211007101229185.png)
+![image-20211007101229185](img_src/image-20211007101229185.png)
 
 ad Block-Range Index - Může pomoci ve speciální situaci, např. když máme bool hodnotu, jen dvě hodnoty, třeba muži/ženy na fakultě a chceme vyfiltrovat muže, blok-range index si pamatuje, jestli v bloku dat obsahuje aspoň jedno true. Pokud tam máme ženy na začátku muže potom, tak velmi rychle zjistí, že prvních pár bloků vůbec nemusí číst a přečte jen bloky, kde má aspoň nějaké true.
 
@@ -439,7 +439,7 @@ Btw B strom není binární, ale enární strom. B+ strom znamená, že má záz
 
 Používá B* stromy (B strom co má naplněnost na 2/3, není omezen na záznamy v listech) a přidává Z-curve na linearizování n-dimenzionálních dat
 
-![image-20211007102218208](img_src\image-20211007102218208.png)
+![image-20211007102218208](img_src/image-20211007102218208.png)
 
 Dělá zanořující Ztkový shape (na nejvyšší úrovni i každé nižští, takže jakoby 3 Z úrovně na tomto obrázku). Pořád to má “chyby”, kdy jsou vedle sebe sice v pořadí ale v 2D prostoru ne a naopak, ale má to rozhodně větší “přesnost” blízkosti v pořádí == blízkosti ve vážně 2D prostoru než B+ strom.
 
@@ -447,7 +447,7 @@ Z-curve zajišťuje dobrou výkonnost pro range queries, protože za sebou násl
 
 Z-value se snadno dopočítá podle x a y:
 
-![image-20211007103046141](img_src\image-20211007103046141.png)
+![image-20211007103046141](img_src/image-20211007103046141.png)
 
 Barvičky jsou bloky.
 
@@ -457,19 +457,19 @@ Barvičky jsou bloky.
 
 Jako B-stromy - data v listových uzlech, uzly jsou reprezentovány jako minimální bounding rectangles (nejmenší opsané obdélníky), high-balanced structure. Přidává tím možnost více-dimenzionálních dat.
 
-![image-20211007103706274](img_src\image-20211007103706274.png)
+![image-20211007103706274](img_src/image-20211007103706274.png)
 
 Nevýhoda - overlapy mohou nastat, hlavně ve více dimenzionálních datech jich může být fakt hodně a musíme při hledání projít více podstromů než jen jeden při cestě.
 
 Proto se dost řeší optilmalizace splitů - jak rozštěpit data, aby je ten opsaný obdélník obepsal s co nejméně volným místem, co nejkompaktnější.
 
-![image-20211007104048571](img_src\image-20211007104048571.png)
+![image-20211007104048571](img_src/image-20211007104048571.png)
 
 #### R+ strom
 
 Řeší overlapy tak, že pokud je tam overlap, rozdělí to na dvě části a uloží do dvou nodes, takže prohledávání je vždy jen jednou cestou - logaritmická složitost.
 
-![image-20211007104212401](img_src\image-20211007104212401.png)
+![image-20211007104212401](img_src/image-20211007104212401.png)
 
 Obrázek: G, které overlapuje, se rozdělilo a uložilo do node A i do node P.
 
@@ -500,9 +500,9 @@ Transformuje hodnoty do více dimnezní a projectneme je. Intersekce projekcí n
 
 **Range-encoded Bitmap Index**
 
-![image-20211007105715522](img_src\image-20211007105715522.png)
+![image-20211007105715522](img_src/image-20211007105715522.png)
 
-![image-20211007105738967](img_src\image-20211007105738967.png)
+![image-20211007105738967](img_src/image-20211007105738967.png)
 
 Pro narození člověka se dá 1 do toho měsíce a všechny “vyšší”. Pro range kdo je narození od března do srpna se stačí podívat na sloupečky Aug a Feb - ti, kdo mají už 1 v Aug ale ještě ji neměli ve Feb, jsou narození v Mar-Aug.
 
@@ -510,7 +510,7 @@ Pro narození člověka se dá 1 do toho měsíce a všechny “vyšší”. Pro
 
 Rozbití dat do částí, co se “nepřekrývají”. Může korespondovat s granularitou dimenze. Vertikální (podle sloupců; pokud máme sloupce které jsou často přistupované; trochu obtížnější, často třeba ručně) vs horizontální (podle řádků).
 
-![image-20211007110804743](img_src\image-20211007110804743.png)
+![image-20211007110804743](img_src/image-20211007110804743.png)
 
 Vylepšuje:
 
@@ -527,21 +527,21 @@ Implementace na úrovni aplikace nebo databázového systému
 
 **Horizontal Partitioning**
 
-![image-20211007110836509](img_src\image-20211007110836509.png)
+![image-20211007110836509](img_src/image-20211007110836509.png)
 
 **Vertical Partitioning**
 
-![image-20211007110851779](img_src\image-20211007110851779.png)
+![image-20211007110851779](img_src/image-20211007110851779.png)
 
-![image-20211007111044767](img_src\image-20211007111044767.png)
+![image-20211007111044767](img_src/image-20211007111044767.png)
 
 Join Optimization
 
-![image-20211007111443876](img_src\image-20211007111443876.png)
+![image-20211007111443876](img_src/image-20211007111443876.png)
 
 Pro optimalizaci je dobré se dívat na velikost tabulek a na filtry, které na ně aplikujeme (např. vyhnout se dělání joinu prvně na big af tabulkách, když potom by se to nějak vyfiltrovalo).
 
-![image-20211007111717205](img_src\image-20211007111717205.png)
+![image-20211007111717205](img_src/image-20211007111717205.png)
 
 OLTP heuristiky joinů nejsou příliš vhodné pro DW. Lepší může být použít **cross join**. 
 
@@ -588,7 +588,7 @@ Ve většině DW je ETL nejnáročnější proces (až 80% vývoje).
 
 ETL - Extract $\rightarrow$ Transform $\rightarrow$ Load (vs ELT, kde je to naopak)
 
-![image-20220113224054180](img_src\image-20220113224054180.png)
+![image-20220113224054180](img_src/image-20220113224054180.png)
 
 **Data staging area** - transit storage pro data v procesu, probíhají zde transformace/čištění dat. Pár sekvenčních operací nad velkým objemem dat. Není potřeba locking, logging, etc. Dokončené dimenze jsou nakopírovány do relevantních data marts.
 
@@ -607,9 +607,9 @@ Normalizování a čištění dat.
 * Chceme data co jsou - přesná, úplná, konzistentní, unikátní.
 * Řeší normalizaci dat, konflikty/inkonzistence, spelling errors, duplicates match.
 
-![image-20220113225503722](img_src\image-20220113225503722.png)
+![image-20220113225503722](img_src/image-20220113225503722.png)
 
-![image-20220113225519997](img_src\image-20220113225519997.png)
+![image-20220113225519997](img_src/image-20220113225519997.png)
 
 * detekování nekonzistencí - column screen (je tam hodnota? má dobrý formát?), structure screen (dávají tyto informace dohromady smysl? např. adresa), business rule screen (dávají data smysl vzhledem k business? např. je počet objednávek zákazníka reálně dosažitelná hodnota?)
 
@@ -622,7 +622,7 @@ Normalizování a čištění dat.
 
 **Prepare dimensional tables**
 
-![image-20220113232822569](img_src\image-20220113232822569.png)
+![image-20220113232822569](img_src/image-20220113232822569.png)
 
 Problémy:
 
@@ -673,11 +673,11 @@ V Big Data spíše horizontal scaling (adding more machines) než vertical (incr
 
   **Map function** simplifies the problem, input: single data item, output: zero or more (key, value) pairs. Keys do not have to be unique. Map phase applies map function to all items.
 
-  ![image-20220114001615856](img_src\image-20220114001615856.png)
+  ![image-20220114001615856](img_src/image-20220114001615856.png)
 
   **Grouping**: Key-value outputs are grouped by key and are consolidated into a single list (key, list).
 
-  ![image-20220114001654104](img_src\image-20220114001654104.png)
+  ![image-20220114001654104](img_src/image-20220114001654104.png)
 
   **Reduce**: Combine the values for each key. Input (key, value-list), output (key, value-list) with zero or more output records.
 
@@ -752,32 +752,32 @@ intersect partial join
 
 ## Přednáška 1 - Introduction to BI
 
-![image-20210916113239715](img_src\image-20210916113239715.png)
+![image-20210916113239715](img_src/image-20210916113239715.png)
 
 ## Přednáška 2 - DW Modelling
 
-![image-20210923112205750](img_src\image-20210923112205750.png)
+![image-20210923112205750](img_src/image-20210923112205750.png)
 
 ## Přednáška 3 - Implementace a toazování
 
-![image-20220113222633614](img_src\image-20220113222633614.png)
+![image-20220113222633614](img_src/image-20220113222633614.png)
 
 ## Přednáška 4 - Indexování a optimalizace
 
 **Subsummaries**
 
-![image-20211007110128102](img_src\image-20211007110128102.png)![image-20211007111104050](img_src\image-20211007111104050.png)
+![image-20211007110128102](img_src/image-20211007110128102.png)![image-20211007111104050](img_src/image-20211007111104050.png)
 
-![image-20211007113453696](img_src\image-20211007113453696.png)
+![image-20211007113453696](img_src/image-20211007113453696.png)
 
 **Final summary**
 
-![image-20211007114506534](img_src\image-20211007114506534.png)
+![image-20211007114506534](img_src/image-20211007114506534.png)
 
 ## Přednáška 5 - ETL proces
 
-![image-20220114000827900](img_src\image-20220114000827900.png)
+![image-20220114000827900](img_src/image-20220114000827900.png)
 
 ## Přednáška 9 - Big Data Analytics
 
-![image-20220114000812171](img_src\image-20220114000812171.png)
+![image-20220114000812171](img_src/image-20220114000812171.png)
