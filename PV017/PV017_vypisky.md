@@ -150,7 +150,7 @@ Základní pojmy informační bezpečnosti:
 
 **Obecný model zabezpečování**
 
-![image-20221023224820335](PV017_vypisky.assets\image-20221023224820335.png)
+![image-20221023224820335](PV017_vypisky.assets/image-20221023224820335.png)
 
 **Systém bude úspěšný** (bezpečný), když bude zajišťovat ochranu proti všem možným útokům (včetně takových, které v době vytváření systémů ještě neexistují).
 
@@ -674,7 +674,7 @@ Důvěryhodná bezpečnostní politika zpracování informací je základní ká
 
 Fáze projektu:
 
-![image-20221026115449161](PV017_vypisky.assets\image-20221026115449161.png)
+![image-20221026115449161](PV017_vypisky.assets/image-20221026115449161.png)
 
 Úspěch projektu je splnění cílů <u>věcných</u> (co), <u>časových</u> (kdy) a <u>nákladových</u> (za kolik).
 
@@ -691,7 +691,7 @@ Pro implementaci ISMS by měl být sestaven tým z klíčových business manaže
 
 **4-vrstvá struktura dokumentové základny ISMS**
 
-![image-20221026121239836](PV017_vypisky.assets\image-20221026121239836.png)
+![image-20221026121239836](PV017_vypisky.assets/image-20221026121239836.png)
 
 **Další dokumenty v ISMS**
 
