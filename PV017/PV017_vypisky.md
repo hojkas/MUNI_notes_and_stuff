@@ -648,15 +648,72 @@ Většina organizací vytváři politiku informační bezpečnosti dle standardu
 
 Důvěryhodná bezpečnostní politika zpracování informací je základní kámen **systému řízení informační bezpečnosti** (**ISMS**, Information Security Management System).
 
-* Cílem ISMS je zajistit trvalou aktuálnost politiky informační bezpečnosti a trvalou úroveň zabezpečení informací. Je buď nadřazenea politice informační bezpečnosti (InfoSec) nebo její přímou součásti.
-* Základní idea: Plan $\rightarrow$ Do $\rightarrow$ Check $\rightarrow$ Act $\rightarrow$ (repeat)
-  Zavedení a provozování opatření v kontextu s činností organizace, neustálé zlepšování na základě objektivního měření
+* Systém ISMS jako součást celkového systému řízení organizace (ve všech podčástech jako strutkura, politiky, odpovědnosti, procesy, zdroje, …)
 
-[TODO slidy 3 25-56]
+* Cílem ISMS je zajistit trvalou aktuálnost politiky informační bezpečnosti a trvalou úroveň zabezpečení informací. Je buď nadřazenea politice informační bezpečnosti (InfoSec) nebo její přímou součásti. Výstupem ISMS by měly být **správně fungující procesy** podporující informační bezpečnost v relevantních činnostech organizace.
+* **Základní idea**: Plan $\rightarrow$ Do $\rightarrow$ Check $\rightarrow$ Act $\rightarrow$ (repeat)
+  Zavedení a provozování opatření v kontextu s činností organizace, neustálé zlepšování na základě objektivního měření.
+* Bází pro budování ISMS jsou standardy `ISO 27001` (jak navrhnout ISMS a co má obecně dělat) a `ISO 27002` (která konrétní bezpečnostní opatření může/má systém ISMS obsahovat).
+* ISMS z definice je systém řízení, který je dokumentovaný, systematicky implementovaný a řízený, trvale přezkoumávaný a auditovaný, trvale vylepšovaný, důvěryhodný (důvěryhodnost poskytuje certifikace nezávislou certifikační autoritou).
+* **Dokumentace** by měla obsahovat: info o kontextu působení ISMS (oblast, politika bezpečnosti, cíle), o rizicích (jak se ohodnocují, zvládají, jak na ně jde aplikovat opatření), info o aktivech, info o podpory ze strany organizace. K tomu by měla mít info o protokolech různých věcí, jako o školeních, monitorováních, auditech, korekcí… A různé politiky (např. hesel, likvidace věcí, klasifikace informací, work from home, …)
+
+**Role v ISMS**
+
+* ISMS vede *šéf projektu ISMS*.
+* Za ISMS je odpovědný typicky *CEO*. Vrcholový management si musí vzít ISMS projekt “k srdci” (jinak se nic nepohne). Podpora od managementu/vedení organizace je klíčová. CEO musí chápat, proč je projekt třeba, a prosazovat ho.
+* *CISO* má zopovědnost za zajišťování informační bezpečnosti obecně, tedy i za ISMS.
+
+**Budování ISMS**
+
+* Na začátku ideál vypracovat *seznam aktuálních relevantních bezpečnostních problémů* (nejlépe s odkazem na standard).
+* Zredukovat v zadání ISMS vše, co je moc složité, náročné, obtížné. [Aby to nevypadalo tak děsivě.] Lidi nemají rádi změny obecně, počítat s tím, že někteří budou kopat proti.
+* Vymezit oblast toho, kde ISMS bude působit.
+* Ideálně jet podle standardu `27001` a `27002`, případně se i nechat certifikovat podle `27001` skrz certifikační autoritu, která je akreditována u Národní akreditačního úřadu (NAU). V některých případech může certifikace podle `27001` dána legislativou. Pro úspěšnost auditu certifikační autority je dobré mít dostupnout úplnou dokumentaci ISMS, zprávy z interních auditů a testů, vstřícnost k auditorů, přístup k vyššímu managementu.
 
 ## Projekt implementace ISMS
 
-[TODO slidy 3 56-93]
+Fáze projektu:
+
+![image-20221026115449161](PV017_vypisky.assets\image-20221026115449161.png)
+
+Úspěch projektu je splnění cílů <u>věcných</u> (co), <u>časových</u> (kdy) a <u>nákladových</u> (za kolik).
+
+Projekt je potřeba řídit polde nějakých <u>plánů projektu</u>. Metodou řízení realizace ISMS je podle `27001` **PDCA** (plan - do - check - act), ale lze použít i jiné.
+
+* **Plan**: Definice oblasti, politiky, přístupu, procedur řešících hodnocení rizik, vybrání možností jak zvládat rizika, výběr opatření, vypracování prohlášení o těchto věcech.
+* **Do**: Implementace vybraných opatření zvládání rizik, implementace procedur, zaškolení zaměstnanců, zajištění zdrojů, formulace plánu zvládání rizik.
+* **Check**: Sledování a posuzování výkonu ISMS. Monitorování, testování, audity, měření výkonu, shromažďování výsledků, vytváření zpráv pro management.
+* **Act**: Provedení oprav na základě posouzení mangementem. Identifikace a implementace vylepšení.
+
+Pro implementaci ISMS by měl být sestaven tým z klíčových business manažerů a technických expertů na InfoSec, vést by ho měl člen středního nebo nižšího managementu s delší praxí (ideálně ne IT manažer).
+
+<u>Dokumentace</u> je časově nejnáročnější, musí být úplná, odpovídat firemnímu prostředí, dostupná, použitelná, adekvátně chráněná. Dokumentace má být v souladu s `ISO 27001` (obsahovat politiku informační bezpečnosti, oblast ISMS, hodnocení rizik, cíle, popis řídící struktury ISMS, důkazy provedených akcí, plány zvládání rizik, procedury implementující opatření, procedury řízení a inspekce).
+
+**4-vrstvá struktura dokumentové základny ISMS**
+
+![image-20221026121239836](PV017_vypisky.assets\image-20221026121239836.png)
+
+**Další dokumenty v ISMS**
+
+* z oblasti správy informační bezpečnosti
+  $-$ soupis citlivých inf. aktiv
+  $-$ hodnocení zranitelností, hrozeb a rizik pro tato aktiva
+  $-$ manuál ISMS obsahující prohlášení o aplikovatelnosti (opatření prosazujících bezpečnost)
+* z oblasti nástrojů pro plnění správy InfoSec
+  $-$ sestava popisu procesů, politik, procedur a návodů k činnostem v oblasti InfoSec
+* Dokumenty tvořící manuál ISMS (dostupný všem zaměstnancům)
+* Důkazy provedených akcí organizací při vedení ISMS (zápisy ze schůzí, zprávy specialistů, …)
+* Popis systému řízení informační bezpečnosti
+* Plán zvládání rizik
+  Včetně podpůrných procedur obsahujících detaily o tom kdo má co dělat za jaké situace.
+* Procedury říící správu a inspekci ISMS
+* Pracovní instrukce
+* Formuláře, šablony, zprávy o auditech, …
+
+**Testování ISMS**
+Funguje to jak bylo zamýšleno?
+
+Možnosti testování: důkladný audit (interní, externí), papírové testování (analýza dokumentů), reálné testování, penetrační testování, rozsáhlé zcénářově orientované testy, …
 
 <div style="page-break-after: always; break-after: page;"></div>
 
