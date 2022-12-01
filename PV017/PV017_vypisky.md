@@ -1,8 +1,14 @@
 # PV017 Řízení informační bezpečnosti
 
+![certifikace](PV017_vypisky.assets/certifikace.png)
+
 > Poznámky z učení se. Některé věci mohou být vynechané protože jsem je znala, nebo mi přišly nedůležité, nebo se mi nechtělo je vypisovat. A taky vám nikdo nezaručí, že jsem někde neudělala chybu nebo něco špatně nepochopila. Používejte na vlastní riziko. Jo a jestli vám to místy přijde chaotické, věřte mi, že materiály byly ještě víc.
 >
+> WORK IN PROGRESS! Pokusím se stihnout do předtermínu
+>
 > - hojkas
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 [toc]
 
@@ -75,6 +81,21 @@ Nesprávně zodpovězená otázka: `-1b`!
 
 * Jak hodnotit bezpečnost
 * Praktické poznatky z posuzování kyberbezpečnosti - pohled z praxe
+
+<div style="page-break-after: always; break-after: page;"></div>
+
+# TLDRs
+
+Zkrácené verze poznámek (podle velmi subjektivního systému nepodloženého ničím). [Plné verze](#přednáška-1) jsou níže.
+
+> A pozor, snažila jsem se použít srozumitelný jazyk, takže je možné, že bude v této sekci více nepřesností či vyloženě chyb.
+
+## 1
+
+**safety** - bezpečí - stav, kdy jsme chránění proti nahodilným událostem
+**security** - bezpečnost - ochránění proti poškození z úmyslných činů
+
+TODO
 
 <div style="page-break-after: always; break-after: page;"></div>
 
@@ -719,7 +740,109 @@ Možnosti testování: důkladný audit (interní, externí), papírové testov�
 
 # Přednáška 4
 
-[TBD]
+## Kyberbezpečnost
+
+**2 modely:**
+
+* **Identifikační model**: USA + jihoamerické státy.
+  \+ Efektivní, univerzální.
+  \- Velká míra zásahu do informačního soukromí. Problém výpadků, nedostatek mezinárodní podpory.
+* **Model ochrany prostředí**: EU, ČR
+  \+ Performativní pravidla, chytrá regulace. Menší zásah do informačního soukromí.
+  \- Méně efektivní, institucionální oddělení.
+
+**Právní úprava kyberbezpečnosti:**
+
+`Zákon č. 181/2014 Sb.`, **o kybernetické bezpečnosti** (ZKB/ZoKB)
+`Zákon č. 240/2000 Sb.`, **o krizovém řízení** a o změně některých zákonů (krizový zákon)
+`Zákon č. 365/2000 Sb.`, **o IS veřejné správy** (ISVS)
+`Směrnice (EU) 2016/1148` o opatřeních zajištění vysoké společé úrovně bezpečnosti sítí a informačních systémů v Unii (**směrnice NIS**)
+`Nařízení (EU) 2019/881` o agentuře ENISA, o certifikaci kybernetické bezpečnosti informačních a komunikačních technologií (“**akt o kybernetické bezpečnosti**”)
+Sektorová regulace (např. energetika, bankovní a finanční služby), obecná regulace
+
+**Graf účastníků a akcí v ZKB (zákonu o kybernetické bezpečnosti):**
+
+![image-20221201200846147](PV017_vypisky.assets/image-20221201200846147.png)
+
+[NÚKIB = Národní Ústav Kybernetické Informační Bezpečnosti???]
+
+**Povinné osoby dle ZoKB**
+
+![image-20221201202431590](PV017_vypisky.assets/image-20221201202431590.png)
+
+* **Služby a sítě elektronických komunikací**
+  * Určování neprobíhá, osoby jsou definovány zákonem o elektronických komunikacích
+  * Sféra Národního CERTu. Povinnost nahlásit konktakní údaje.
+* **Významné sítě** = “síť elektronických komunikací zajišťujících přímé zahraniční propojení do veřejných komunikačních sítí nebo zajišťující přímé připojení ke kritické informační infrastruktuře”
+  * Určování neprobíhá, povinný subjekt určen přímo definicí v ZKB.
+  * Sféra Národního CERTu. Povinnost hlásit kontaktní údaje, detekovat kybernetické bezpečnostní události a hlásit incidenty.
+* **Kritická informační struktura** (KII) = prvek nebo systém prvků kritické infrastruktury (KI), komunikační a informační systémy v oblasti kybernetické bezpečnosti.
+  * Komplex informačních a komunikačních systémů, jejichž narušení by mohlo mít vážný dopad na bezpečnost státu, zabezpečení základních životních potřeb obyvatel, zdraví osob nebo ekonomiku státu. Systémy důležité pro chod státu a ekonomiky.
+  * Určena podle stanovených kritérií v oblasti kybernetické bezpečnosti a krizového zákona.
+    Týká se veřejnoprávních i soukromých subjektů.
+  * Sféra Vládního CERTu, určuje/navrhuje NÚKIB.
+  * Nejpřísnější regulace - povinnost plnit celý ZKB. Hlásit kontaktní údaje, detekovat a hlásit incidenty, povinnost zavést bezpečnostní opatření podle vyhlášky č. 82/2018 Sb. Nutno provádět ochranná a reaktivní opatření vydané NÚKIBem.
+
+* **Významný informační systém** = systém spravovaný orgánem veřejné moci, který není kritickou informační infrastukturou ani informačním systémem základní služby, a u kterého narušení informační bezpečnosti může omezit/ohrozit působnost daného orgánu veřejné moci.
+  * Pouze státní sektor.
+  * Určeno: Buď automaticky pokud je systém zahrnut do přílohy vyhlášky č. 317/2014 Sb, nebo pokud orgán/osoba usoudí, že systém naplňuje kritéria této vyhlášky, a nahlásí se NÚKIBu.
+* **Základní služby** = služby, jejichž poskytování je závislé na informačních systémech/sítích elektronických komunikací, a jejichž narušení by mohlo mít významný dopad na zabezpečení společenských/ekonomických činností v určitém odvětví (energetika, doprava, bankovnictví, finanční trhy, zdravotnictví, vodohospodářství, digitální infrastruktura nebo chemický průmysl).
+  * Určuje NÚKIB na základě kritérií z vyhlášky š. 437/2017 Sb, poté osloví relevantní subjekty a zahájí správní řízení o určení provozovatele dané služby.
+* **Digitální služby** = služby informační společnosti spočívající v provozování online-tržiště, internetového vyhledávače nebo cloud computingu.
+  * Určeno: Sám orgán/osoba posoudí naplnění kritérií a případně se nahlásí Národnímu CERT.
+  * Regulace se netýká malých a mikro podniků (<50 lidí, <10 milion € obrat).
+
+**Instituty ZoKB**:
+
+* Mají **obecné povinnosti**: Sbírat kontaktní údaje, sdělovat bezpečnostní opatření (organizační, technická)
+* Mají **operativní povinnosti**: Řešit hlášení incidentů (kybernetický bezpečnostní incident = KBI), varování před možnými hrozbami, protiopatření (reaktivní, ochranná)
+  * reaktivní protiopatření: reaguje na KBI, rozhodnutí nebo opatření obecné povahy
+  * ochranná protiopatření: reakce na výsledek analýzy KBI, opatření obecné povahy
+* Řeší **stav kybernetického nebezpečí** = stav, kdy je ve velkém rozsahu ohrožena bezpečnost informací nebo služeb elektronických komunikací nebo bezpečnost a integrita sítí elektronických komunikací (a tím by mohlo dojít k porušení nebo ohrožení zájmu České republiky ve smyslu zákona o ochraně utajovaných informací)
+  * Rozhoduje ředitel NÚKIB, povinnost zveřejnění, max 7/30 dnů, možnost navazujícího nouzového stavu.
+* Stanovují **požadavky na dodavatele**
+* Vydávají **certifikace**
+
+## Ochrana osobních údajů
+
+**GDPR**: Nařízení Evropského parlamentu a rady (EU) `2016/679` o ochraně fyzických osob v souvislosti se zpracováním osobních údajů
+
+Zákon `č. 110/2019 Sb.` Zákon o zpracování osobních údajů.
+
+> Osobními údaji (se rozumí) veškeré informace o indentifikované nebo identifikovatelné fyzické osobě; identifikovatelnou fyzickou osobou je fyzická osoba, kterou lze přímo či nepřímo identifikovat, zejména odkazem na určitý identifikátor, například jméno, identifikační číslo, lokační údaje, síťový identifikátor nebo na jeden či více zvláštních prvků fyzické, fyziologické, genetické, psychické, ekonomické,  kulturní nebo společenské identity této fyzické osoby.
+
+**Zpracování osobních údajů**: Jákakoliv operace nebo soubor operací s osobními údaji. 
+
+**Zásady** zpracování osobních údajů platí pro kohokoliv, kdo je zpracovává.
+
+* Osobní údaje musí být ve vztahu k subjektu zpracovávány korektně a zákonným a transparentním způsobem.
+* Zásada limitace účelem.
+* Zásada minimalizace údajů (pouze nezbytný rozsah).
+* Zásada přesnosti.
+* Zásada omezení uložení (právo být zapomenut).
+* Zásada integrity a důvěrnosti. 
+* Zásada odpovědnosti.
+
+**Zákonnost zpracování v GDPR**: [situace kdy je zpracování osobních údajů OK]
+
+* Existuje souhlas se zpracováním.
+* Zpracování nezbytné pro plnění smlouvy.
+* Zpracování nezbytné pro dodržení právní povinnosti správce.
+* Ochrana životně důležitých zájmů subjektu údajů (souhlas bez zbytečného odkladu)
+* Zpracování nezbytné pro plnění úkolu ve veřejném zájmu, nebo při výkonu veřejné moci, kterým je pověřen správce [Např. policie?]
+* Nezbytnost zpracování pro ochranu práv a právem chráněných zájmů správce, příjemce, nebo jiné dotčené osoby.
+
+**Práva subjektů údajů** [v GDPR]
+
+* Právo být informován o zpracování osobních údajů
+* Právo na přístup k údajům
+* Právo na opravu, výmaz (“právo být zapomenut”)
+* Právo na omezení zpracování
+* Právo na přenositelnost údajů
+* Právo vznést námitku
+* Právo na ochranu před automatizovaným individuálním rozhodování, včetně profilování
+
+**AI Act** - návrh nařízení Evropského parlamentu a rady, kterým se stanoví harmonizovaná pravidla pro umělou inteligenci
 
 <div style="page-break-after: always; break-after: page;"></div>
 
@@ -729,9 +852,18 @@ Možnosti testování: důkladný audit (interní, externí), papírové testov�
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# Přednáška 6
+# Přednáška 6, část 1
 
 [TBD]
 
 <div style="page-break-after: always; break-after: page;"></div>
 
+# Přednáška 6, část 2
+
+[TBD]
+
+<div style="page-break-after: always; break-after: page;"></div>
+
+# Přednáška 7
+
+[???]
