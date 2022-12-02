@@ -1,8 +1,16 @@
 # PV017 Řízení informační bezpečnosti
 
+**Podzimní semestr 2022/2023**
+
+
+
 ![certifikace](PV017_vypisky.assets/certifikace.png)
 
-> Poznámky z učení se. Některé věci mohou být vynechané protože jsem je znala, nebo mi přišly nedůležité, nebo se mi nechtělo je vypisovat. A taky vám nikdo nezaručí, že jsem někde neudělala chybu nebo něco špatně nepochopila. Používejte na vlastní riziko. Jo a jestli vám to místy přijde chaotické, věřte mi, že materiály byly ještě víc.
+> Poznámky vytvořené během učení se na zkoušky.
+>
+> Některé věci mohou být vynechané protože jsem je znala, nebo mi přišly nedůležité, nebo se mi nechtělo je vypisovat. A taky vám nikdo nezaručí, že jsem někde neudělala chybu nebo něco špatně nepochopila. U některých přednášek navíc nebyl k dispozici záznam, takže výpisky pouze ze slidů mohou být méně relevantní. Jo a jestli vám to místy přijde chaotické, věřte mi, že  některé materiály byly ještě víc.
+>
+> Používejte na vlastní riziko.
 >
 > WORK IN PROGRESS! Pokusím se stihnout do předtermínu
 >
@@ -16,16 +24,20 @@
 
 # Organizace
 
+[Toto nezestárlo dobře, informace z mailu, které na poslední chvíli změnil.]
+
 `30b` půlsemestrální zkouška (na první 3 přednášky), `70b` záverečná písemka
+[Až na to, že půlsemka měla `32b`, takže závěrečná bude asi `68b`.]
 
 Obojí kombinace otevřených a testových otázek.
 
-**Otevřená otázka** je za `7b`.
+**Otevřená otázka** je za `7b`. [Až na to, že na půlsemce byla za `6b`.]
 Příklad:
 
 > Popište politiku a obsah (cíl) procesu správy reakcí na bezpečnostní události. 
 
-**Testová otázka** je za `3b`. Má alespoň jednu správnou odpověď, musí být vybrány VŠECHNY správné odpovědi pro zisk bodů.
+**Testová otázka** je za `3b`. [Až na to, že na půlsemce byla za `4b`.]
+Má alespoň jednu správnou odpověď, musí být vybrány VŠECHNY správné odpovědi pro zisk bodů.
 Příklad:
 
 > Faktory determinující velikost rizika pro aktivum jsou
@@ -36,8 +48,6 @@ Příklad:
 > e)	klasifikační kategorie aktiva
 
 Nesprávně zodpovězená otázka: `-1b`!
-
-[200 IQ výpočet: 30b půlsemka ~ 3 otevřené 3 testové otázky]
 
 ## Hodnocení
 
@@ -606,6 +616,8 @@ Co se <u>získání záruk</u> týče:
 
 # Přednáška 3
 
+[Nebyl záznam. Vytvořeno pouze ze slidů.]
+
 ## Politika informační bezpečnosti
 
 **Politika** = systém pravidel řídící dosažení cílů určitými způsoby
@@ -740,6 +752,8 @@ Možnosti testování: důkladný audit (interní, externí), papírové testov�
 
 # Přednáška 4
 
+[Nebyl záznam. Vytvořeno pouze ze slidů.]
+
 ## Kyberbezpečnost
 
 **2 modely:**
@@ -848,22 +862,134 @@ Zákon `č. 110/2019 Sb.` Zákon o zpracování osobních údajů.
 
 # Přednáška 5
 
+## SDLC vs Secure SDLC
+
+**SDLC** = **S**oftware **D**evelopment **L**ife**C**ycle (např. waterfall-based SDLC, agilní SDLC, …)
+
+Typicky fáze: (akorát třeba u agilních v cyklu)
+
+$Requirements \rightarrow Design \rightarrow Implementation \rightarrow Verification \rightarrow Release \rightarrow Respose$
+
+Cílem **Secure SDLC** je zavést do všech fází klasického SDLC bezpečnostní prvky (kterými se zajistí, že se s bezpečností počítá od začátku, zákazník bude mít bezpečný sw, data atd.)
+
+## Microsoft SDL
+
+Jenom jeden příklad SDLC, uvádíme se proto, že Microsoft byl tak trochu pionýr v oblasti, řešil to jako jeden z prvních (a svoje metodiky zveřejnil ostatním firmám).
+
+Secure developement integrovali 1998-2007. (Změnit metodiky celé firmy není otázka na chvíli, trvá typicky měsíce spíše roky změnit mentalitu firmy a všeho ohledně toho. Navíc Microsoft jak byl první, museli si spoustu nástrojů, metodik, praktik… vyvíjet sami.)
+
+<u>**Praktiky v SDL podle fází vývoje**:</u>
+
+**Requirements**
+
+- <u>Definice bezpečnostních požadavků</u> na základě:
+
+  - Standardů firmy.
+
+  - Legálních požadavků (např. GDPR, NIST, ISO, OWASP…), industry standardů.
+
+  - **OWASP ASVS** = **A**pplication **S**ecurity **V**erification **S**tandard
+    OWASP je organizace zabývající se bezpečností webových aplikací, sdružuje lidi z celé světa (má oddíly, jeden je i v Brně). OWASP pod sebou má desítky až stovky security-related projektů, jeden z jejich flagship projektů je právě ASVS.
+
+    Dokument ASVS obsahuje 69 stran požadavků v 14 různých oblastech (např. autentikace, session management, řízení přístupu, kryptografie, errors, logy, požadavky na hesla, …). Dokument může sloužit jako checklist věcí na testování produktu, že vyhovuje bezpečnosti.
+
+- <u>Definice a použití kryptografických standardů</u>
+
+  - Cryptography Review Board (skupina lidí ve firmě, kteří aktivně sledují stav a použitelnost různých technologií kryptografie) vydávají kryptografické doporučení (např. SSL/TLS verze, typy šifer, algoritmů, délky klíčů, RNG, …).
+  - Microsoft tato doporučení zveřejňuje (takže menší firmy bez dedikovaných lidí na cryptography review se mohou inspirovat tímto).
+
+**Design**
+
+Zároveň s vymýšlením toho, jak aplikace bude vypadat, přemýšlíme nad tím, jestli tam někde není chyba/bezpečnostní díra. Čím dřív se na to přijde, tím méně stojí to opravit.
+
+<u>Threat Modeling</u> (Modelování hrozeb): Brainstorming všeho, co se může pokazit/může být špatně. Kromě free flow brainstormingu je dobré použít jako podporu nějaký tool nebo existující seznamy, aby se na něco nezapomnělo (aby se nesoustředilo na jeden detail a nepřehlédlo celou jinou oblast).
+
+* Při této fázi je dobré se zaměřit na to, aby se pouze generoval seznam hrozeb, a diskuzi “je toto vůbec třeba řešit? a neřešíme to už metodou XY?” nechat až na později. (V této fázi vytvořit obsáhlejší seznam a seškrtat to až později.)
+
+* Výsledkem bude velký seznam hrozeb. Co implementovat jako první je možné rozhodovat např. pomocí <u>DREAD</u> skóre. (Nicméně nejlépe by bylo zaintegrovat všechno co jde, protože ve fázi designu to obvkyle nebývá takový problém.)
+
+  * **D**amage, **R**eproducibility, **E**xploitability, **A**ffected users, **D**iscoverability
+
+    $RiskValue$ = (Damage+ AffectedUsers) $\times$ (Reproducibility + Exploitability + Discoverability)
+
+* Možné nástroje:
+
+  * *Data Flow Diagram*. Tým dostane přehled o celém systému, a lépe se určí, kde se co řeší/kde se co má zabezpečovat/kontrolovat. Součástí je dobré určit “trust boundaries” - podcelky, kde si komponenty navzájem věří (potom hranice trust boundaries určují body, na které je třeba se při zabezpečování zaměřit nejvíce).
+
+  * *Microsoft STRIDE*. **S**poofing, **T**ampering, **R**epudiation, **I**nformation Disclosure, **D**enial of Service, **E**levation of privileges.
+
+    Tento seznam (a oblasti, kterých se týká) je fajn při brainstormingu projít nad každou interakcí mezi komponentami v našem Data Flow Diagramu a ptát se: “Může nastat Spoofing mezi uživatelem a management konzolí? Případně jak tomu zamezit?”.
+
+    Při omezeném času (pokud není žádoucí procházet takto detailně každou interakci), je fajn udělat to aspoň pro všechny interakce co překračují trust boundaries.
+
+  * *Microsoft Threat Modeling Tool*. Nástroj, ve kterém lze vytvořit diagram interakce komponent i zadat konkrétní typ (např. databáze na této technologii v cloudu). Nad vloženým diagramem tool automaticky vygeneruje (obsáhlý) seznam možných hrozeb. (Může vést k tomu, že se tým přestane zamýšlet nad hrozbami nad rámec tohoto seznamu, nebo je přestane kvůli velikosti toho seznamu bavit to modelovat a procházet.)
+
+  * *OWASP Threat Dragon*. Nástroj umožňující vytvořit diagram interakce komponent a vepisovat k nim možné hrozby. Neprovádí automatickou analýzu hrozeb, pouze umožňuje lépe zaznamenat vlastní hrozby než klasické Data Flow Diagramy.
+
+  * *LINDDUN*. **L**inkability, **I**dentifiability, **N**on-repudiation, **D**etectability, **D**isclosure of information, **U**nawareness, **N**on-compliance. Zase jde hlavně o seznam bodů, které se mohou projít, zamyslet se nad každým z nich, a tím checknout, že se na nějakou důležitou oblast nezapomnělo.
+
+  * *Mozilla Rapid Risk Assessment*. Používá se spíš na to zjistit, jestli je nějaká služba z pohledu bezpečnosti zajímavá nebo ne - jestli je třeba ji projít podrobněji. 30-60 minut, zaměří se na data a CIA (Confidentiality, Integrity, Availability). Vyhodnocuje dopad na reputaci, produktivitu a finanční stránku. Pokud něco vyjde s velkým dopadem, rozebere se to jiným nástrojem více.
+
+**Implementation**
+
+* <u>Manage the Security Risk of Using Third-Party Components</u>
+  * Než se použije knihovna třetí strany, zamyslet se a vyhodnotit ji (známé zranitelnosti, podpora vývojáři, frekvence updatů).
+  * Pravidelné skenování codebase, pravidelný update komponent (u kterých byly objeveny nové zranitelnosti).
+  * Je mnoho nástrojů pro takovou analýzu, např. OWASP Dependency Check (Java, .NET).
+* <u>Use Approved Tools</u>
+  * Definovat a udržovat seznam povolených toolů (ověřených, že neobsahují samy o sobě zranitelnosti), používat nejnovější updaty (s fixy nově objevených bezpečnostních zranitelností).
+* <u>Perform Static Analysis Security Testing</u>
+  * Ideálně už nad ještě nemergnutým kódem co je právě vyvíjen (čím dříve je vývojář upozorněn, tím větší šance, že se to vážně opraví). Např. plugin do IDE, job nad merge requestem, …
+  * Nástroje např. SonarQube.
+  * Při výběru toolu na analýzu je třeba myslet na to, jaké mají nástroje false positive & false negatives rates. Moc false positives naučí lidi ignorovat všechny warningy a přestat to používat.
+
+**Verification**
+
+* <u>Perform Dynamic Analysis Security Testing</u>
+  * Dynamická se dělá v runtime. Např. analýza otevřených portů, použitých komunikačních protokolů, atd. 
+  * Nástroje generické (např. Burp Suite, OWASP ZAP) nebo specifické (např. SQLmap pro zjištění možné SQL injection).
+* <u>Perform Penetration Testing</u>
+  * Penetrační testy provádí experti na inf. bezpečnost, simulují útok hackerů a používají k tomu veškeré možné prostředky, které by mohli mít skuteční hackeři (statické analýzy pokud je k dispozici kód, dynamické analýzy, atd.).
+  * Existují guidbooky, např. OWASP Security Testing Guide.
+
+**Response**
+
+* Ideálně se potenciální problémy odhalí proaktivně už dříve, ale stejně je potřeba mít zavedené postupy pro případ, že ne a musí se reagovat.
+
+* <u>Establish a Standard Incident Response Process</u>
+
+**Other**
+
+* <u>Provide Training</u>
+
+  * Snaha naučit vývojáře automaticky přemýšlet o tom, jak vyvíjet bezpečně
+
+* <u>Define Metrics and Compliance Reporting</u>
+
+  * Sbírat statistiky, analyzovat je, vyvozovat z nich případně změny do postupů.
+
+  * Možné metriky: Počet externě/interně reportovaných zranitelnost. Fix rate. False positives. Coverage.
+
+  * **BSIMM 12** (**B**uilding **S**ecurity **I**n **M**aturity **M**odel): Software security framework.
+
+    Řeší metriky v 4 doménách, 12 praktikách, 119 aktivitách. Každý rok osloví firmě a ptají se, co za praktiky ohledně bezpečnosti dělají. Firma dostane zpětnou vazbu nejen kolik z nich dělá/nedělá, a jak si na tom stojí oproti ostatním 128 anonymizovaným společnostem. (To se dá použít jako guide co je fajn zavést jako další.)
+
+  * OWASP SAMM 2: Podobné jako projekt BSIMM 12, ale ještě neposkytují srovnání s ostatními firmami.
+
+<div style="page-break-after: always; break-after: page;"></div>
+
+# Přednáška 6, část 1 [TBD]
+
 [TBD]
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# Přednáška 6, část 1
+# Přednáška 6, část 2 [TBD]
 
 [TBD]
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# Přednáška 6, část 2
-
-[TBD]
-
-<div style="page-break-after: always; break-after: page;"></div>
-
-# Přednáška 7
+# Přednáška 7 [TBD]
 
 [???]
