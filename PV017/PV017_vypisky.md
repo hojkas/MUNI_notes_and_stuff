@@ -2,19 +2,19 @@
 
 **Podzimní semestr 2022/2023**
 
-
-
 ![certifikace](PV017_vypisky.assets/certifikace.png)
 
 > Poznámky vytvořené během učení se na zkoušky.
 >
-> Některé věci mohou být vynechané protože jsem je znala, nebo mi přišly nedůležité, nebo se mi nechtělo je vypisovat. A taky vám nikdo nezaručí, že jsem někde neudělala chybu nebo něco špatně nepochopila. U některých přednášek navíc nebyl k dispozici záznam, takže výpisky pouze ze slidů mohou být méně relevantní. Jo a jestli vám to místy přijde chaotické, věřte mi, že  některé materiály byly ještě víc.
+> Některé věci mohou být vynechané protože jsem je znala, nebo mi přišly nedůležité, nebo se mi nechtělo je vypisovat. A taky vám nikdo nezaručí, že jsem někde neudělala chybu nebo něco špatně nepochopila. Jo a jestli vám to místy přijde chaotické, věřte mi, že  některé materiály byly ještě víc.
 >
 > Používejte na vlastní riziko.
 >
-> WORK IN PROGRESS! Pokusím se stihnout do předtermínu
+> WORK IN PROGRESS! :construction_worker: Pokusím se stihnout do předtermínu
 >
-> - hojkas
+> `hojkas`
+
+<div style="padding-top: 16px"><center>HojkasDoc™</center></div>
 
 <div style="page-break-after: always; break-after: page;"></div>
 
@@ -96,6 +96,8 @@ Nesprávně zodpovězená otázka: `-1b`!
 
 # TLDRs
 
+[TODO]
+
 Zkrácené verze poznámek (podle velmi subjektivního systému nepodloženého ničím). [Plné verze](#přednáška-1) jsou níže.
 
 > A pozor, snažila jsem se použít srozumitelný jazyk, takže je možné, že bude v této sekci více nepřesností či vyloženě chyb.
@@ -105,7 +107,7 @@ Zkrácené verze poznámek (podle velmi subjektivního systému nepodloženého 
 **safety** - bezpečí - stav, kdy jsme chránění proti nahodilným událostem
 **security** - bezpečnost - ochránění proti poškození z úmyslných činů
 
-TODO
+[TODO]
 
 <div style="page-break-after: always; break-after: page;"></div>
 
@@ -978,9 +980,112 @@ Zároveň s vymýšlením toho, jak aplikace bude vypadat, přemýšlíme nad t�
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# Přednáška 6, část 1 [TBD]
+# Přednáška 6, část 1
 
-[TBD]
+## Kritéria hodnocení bezpečnosti
+
+**Vývoj kritérii**
+
+* Začátek v USA koncem 60. let – potřeba ověřených systémů pro vladní organizace, ale individuální hodnocení byla nákladná – snaha minimalizovat náklady na hodnocení zavedením obecných kritérií.
+
+  Tzv. “Orange Book” (1985, Trusted Computer System Evaluation Criteria), dávalo třídy D (žádná bezpečnost) až A1 (nejvyšší).
+
+* V Evropě se vyvinulo ITSEC (oddělení funkčnosti a záruk) v Kanadě CTCPEC (funkčnost dělena na důvěrnost, integritu, zodpovědnost, dostupnost), v US Federal Criteria.
+
+  Více standardů $\rightarrow$ mezinárodně prodávaný sw potřeboval více kontrolami projít, opět snaha mít nějaký common ground.
+
+* **Společná kritéria** (Common Criteria) – slouží jako celosvětový standard, `ISO/IEC 15408`.
+
+  (To neznamená, že předchozí instituce/standardy vymizely, na některý software mohou být kladena i jiná kritéria než tato, a USA si trochu jede vlastní věci, ale je to rozšířený common grounds, na jehož základě se mnoho hodnocení provádí.)
+
+**Pojmy**
+
+- **Akreditace**: Oficiální souhlas (pověření) s prováděním určité činnosti.
+- **Certifikace**: Vydání daného osvědčení na základě provedeného hodnocení.
+- **Hodnocení** (evaluace): Ověření shody deklarovaných vlastnostní (dle kritérií). Hodnocení (autoritou) vždy pouze kontroluje, že deklarované vlastnosti sedí. Neověřuje systém celkově ani nic takového.
+- **Validace**: Ověření platnosti/souladu, v US terminologii “hodnocení”.
+
+## Common Criteria (CC)
+
+Pojmy:
+
+* **TOE** – Target of Evaluation (**Předmět hodnocení**): Produkt nebo systém (popř. jeho část), který je předmětem hodnocení
+* **ST** – Security Target (**Specifikace bezpečnosti**): Cílová kombinace komponent spojených s konkrétním produktem nebo systémem [Cíl úrovně bezpečnosti, který se prověřuje?]
+* **PP** – Protection Profile (**Profil bezpečnosti**): Implementačně nezávislá skupina bezpečnostních požadavků určité skupiny TOE.
+
+Certifikáty CC se dříve zaváděly na dobu neurčitou, brzy ale bylo jasné, že platnost dané úrovně bezpečnosti s časem klesá, a nyní jsou vydávány na 5 let.
+
+Certifikace se ve velkém množství provádí například na oblast produktů typu čipové karty, kde banky, které je budou používat, nutí výrobce, aby měly podle CC konkrétní úroveň záruky.
+
+CC tvoří požadavky na *funkčnost* (functionality) a *záruky* (assurance).
+
+* **Funkčnost**: Popis, co za funkce v oblasti bezpečnosti produkt umí (na papíře).
+  “Co vlastně za bezpečnost ten produkt dělá, jestli chrání integritu, autenticitu, atd. a na jaké úrovni to dělá.”
+  
+* **Záruky**: Jakou důvěru můžeme mít v to, jak dobře zařízení splňuje bezpečnostní funkce.
+  “Jak dobře byl produkt vyvíjen, aby umožňoval tu úroveň bezpečnosti, kterou má umožňovat.”
+  
+  (Neplést s **robustností**: To je charakteristika síly konkrétní bezpečnostní funkce a záruka, že je dobře naimplementovaná.)
+  
+  > [Subjektivní vložka toho, jak jsem to pochopila já, protože ty definice zní strašně. Ale nemusím mít pravdu.]
+  >
+  > Lidsky řečeno: Funkčnost je na papíře co systém umí pro bezpečnost, např. že řeší autorizaci pro přístup k tomuto, integritu dat, atd. A záruka je, jak moc můžeme věřit, že to ten systém vážně dělá (a že to dělá spolehlivě), neboli že produkt dostál svým bezpečnostním cílům.
+  >
+  > Např. Systém má požadavek na funkčnost, že bude zajišťovat důvěrnost dat přenesených při uživatelově přihlášení. Úroveň záruky je taková, že je to implementováno tak dobře, aby to odradilo pokusy běžného útočníka.
+
+**Příprava na evaluaci v CC**
+
+* Definování produktu/systému, co bude evaluován
+* Specifikace funkcionality
+* Specifikace úrovně záruky, který produkt/systém tvrdí, že splňuje
+* Zjistit si, co je potřeba mít ready pro hodnocení u certifikační autority
+* Připravit produkt a dokumentaci na evaluaci
+
+Proces ohodnocení úrovní záruky může mít tyto body:
+(záleží, na jakou úroveň se míří, vyšší úroveň $\rightarrow$ více kroků)
+
+- analýza a kontrola procesů a procedur použitých při vývoji produktu
+- kontrola, že tyto procesy/procedury byly vážně aplikované
+- analýza, jak moc sedí návrh produktu a skutečný stav
+- analýza, jak moc sedí návrh produktu a požadavky na něj
+- důkazy verifikace
+- analýza guidance dokumentů
+- analýza testů na funkčnost a jejich výsledků
+- nezávislé testy na funkčnost
+- analýza zranitelností
+- penetrační testování
+
+CC úroveň záruky $\rightarrow$ záruka se zakládá na hodnocení (aktivním zkoumání produktu a jeho podkladů), které je prováděno experty (kteří s rostoucí úrovní záruky zkoumají do většího rozsahu, hloubky, …)
+
+**7 úrovní záruky (EAL)**
+
+* Hierarchický systém, EAL1 (nejnižší) až EAL7+ (nejvyšší), čím vyšší stupeň, tím víc věcí to musí splňovat a tím naročnější a obsáhlejší je proces hodnocení. Produktů, co mají EAL7 je na světě jen v řádu desítek. Pro výrobce nemá cenu dělat si vyšší EAL než kolik po nich chce klient.
+
+  **EAL1** – functionally tested.
+  **EAL2** – structurally tested.
+  **EAL3** – methodically tested and checked.
+  **EAL4** - methodically designed, tested and reviewed.
+  **EAL5** – semiformally designed and tested.
+  **EAL6** – semiformally verified design and tested.
+  **EAL7** – formally verified design and tested.
+
+* Prakticky:
+
+  * EAL1-3: Nevýznamná úroveň bezpečnosti, je to takové, že to ty systémy dosáhnou i spíš omylem nebo s relativně málo úsilím, nemá cenu na tyto úrovně cílit. Takové “nějaká bezpečnost tam je”, často se tam dodává až jako afterthought nebo aby byl aspoň nějaký certifikát.
+  * EAL4-5: Už významná úroveň, na ni se certifikuje nejvíc produktů, např. čipové/identiifkační karty jsou požadované, aby měly tuto úroveň. V těchto produktech už se typicky na bezpečnost myslelo od začátku.
+  * EAL6-7: Systémy s velkým důrazem na bezpečnost.
+
+**Záruky** znamenají…
+
+- pro zákazníka: jakou úroveň zabezpečení mám garantovanou v daném výrobku?
+- pro vývojáře: co všechno bude můj tým muset provést a poskytnout pro hodnocení?
+- pro hodnotitele: dostal jsem všechny potřebné podklady a zdroje, proběhly všechny testy na danou úroveň v pořádku, abych mohl potvrdit certifikát?
+
+**Význam kritérií**
+
+* Usnadňují nasazení a používání bezpečných systémů (jednodušší srovnávání a výběr dle skutečných potřeb)
+* Usnadňují specifikaci požadavků
+* Ujasňují požadavky na návrh a vývoj
 
 <div style="page-break-after: always; break-after: page;"></div>
 
