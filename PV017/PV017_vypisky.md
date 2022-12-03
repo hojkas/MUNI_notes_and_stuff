@@ -10,8 +10,6 @@
 >
 > Používejte na vlastní riziko.
 >
-> WORK IN PROGRESS! :construction_worker: Pokusím se stihnout do předtermínu
->
 > `hojkas`
 
 <div style="padding-top: 16px"><center>HojkasDoc™</center></div>
@@ -56,6 +54,8 @@ Nesprávně zodpovězená otázka: `-1b`!
 `C` 70-79
 `D` 60-69
 `E` 50-59
+
+
 
 <div style="page-break-after: always; break-after: page;"></div>
 
