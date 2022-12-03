@@ -59,58 +59,6 @@ Nesprávně zodpovězená otázka: `-1b`!
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# Osnova předmětu
-
-[Přednáška 1](#přednáška-1)
-
-- Co se rozumí bezpečností a informační bezpečností zvlášťě
-- Koncept a anatomie informační bezpečnosti
-
-[Přednáška 2](#přednáška-2)
-
-* Jak významná je role standardů, bez nich ani ránu
-* Legislativní rámec
-* Co se rozumí řízením rizik - stručně
-* Kdo má v instituci na starosti dosažení informační bezpečnosti
-
-[Přednáška 3](#přednáška-3)
-
-* Politiky jako specifikátory toho co a jak dělat
-* Systém procesů zajišťující kontinuální efektivitu zabezpečování
-* Jak takový systém procesů projektovat
-
-[Přednáška 4](#přednáška-4)
-
-* Jak zajistit provozní bezpečnost - pohled z praxe
-
-[Přednáška 5](#přednáška-5)
-
-* Jak zajistit aplikační bezpečnost - pohled z praxe
-
-[Přednáška 6](#přednáška-6)
-
-* Jak hodnotit bezpečnost
-* Praktické poznatky z posuzování kyberbezpečnosti - pohled z praxe
-
-<div style="page-break-after: always; break-after: page;"></div>
-
-# TLDRs
-
-[TODO]
-
-Zkrácené verze poznámek (podle velmi subjektivního systému nepodloženého ničím). [Plné verze](#přednáška-1) jsou níže.
-
-> A pozor, snažila jsem se použít srozumitelný jazyk, takže je možné, že bude v této sekci více nepřesností či vyloženě chyb.
-
-## 1
-
-**safety** - bezpečí - stav, kdy jsme chránění proti nahodilným událostem
-**security** - bezpečnost - ochránění proti poškození z úmyslných činů
-
-[TODO]
-
-<div style="page-break-after: always; break-after: page;"></div>
-
 # Přednáška 1
 
 **safety** vs **security**
@@ -780,7 +728,7 @@ Sektorová regulace (např. energetika, bankovní a finanční služby), obecná
 
 ![image-20221201200846147](PV017_vypisky.assets/image-20221201200846147.png)
 
-[NÚKIB = Národní Ústav Kybernetické Informační Bezpečnosti???]
+[NÚKIB = Národní úřad pro kybernetickou a informační bezpečnost]
 
 **Povinné osoby dle ZoKB**
 
@@ -1089,12 +1037,104 @@ CC úroveň záruky $\rightarrow$ záruka se zakládá na hodnocení (aktivním 
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# Přednáška 6, část 2 [TBD]
+# Přednáška 6, část 2
 
-[TBD]
+## Praktické poznatky z posouzení stavu informační a kybernetické bezpečnosti v organizaci
+
+**Proč řešit posouzení?**
+3 možnosti: Buď to je přímo dané zákonem, klienti by bez toho přestali spolupracovat, nebo to sama firma vnitřně vnímá jako dobrý business krok.
+
+1) **Požadavky jsou vynucené primárně**, např. zákonem o kybernetické bezpečnosti, zákonem o krizovém řízení, GDPR, zákon o IS ve veřejné správě, o ochraně utajovaných informací, občanský zákoník, trestní zákoník, atd.
+2) **Požadavky jsou vynucené sekundárně**, zpravidla tlakem ze strany klientů, kteří mají sami zavedený ISMS (ISMS = Information Security Management System) (např. ISO 27001 stanovuje požadavky na soulad – trvají na tom, aby spolupracující software měl stejný důraz na bezpečnost)
+3) **Zajištění business kontinuity a odpovědnost dobrého hospodáře**: Dávat důraz na bezpečnost pro firmu znamená ochranu aktiv, zajištění lepšího provozu, atd.
+
+**Rámec pro posouzení**: Záleží podle účelu, proč se posouzení dělá.
+
+* Povinné osoby (z pohledu ZoKB - Zákonu o kybernetické bezpečnosti) mají rámec posouzení jasný, podle tohoto zákona
+* Nepovinné osoby (z pohledu ZoKB) buď potřebují audit (podle ISO 27001), kde rámec určuje tato norma, nebo nepotřebují audit podle této normy, a pak se posuzuje např. podle norem NÚKIBu (Národní úřad pro kybernetickou a informační bezpečnost)
+
+**Průběh posouzení**
+
+Iniciační fáze $\rightarrow$ Vyžádání dokumentace $\rightarrow$ Sběr informací $\rightarrow$ Studium/načtení a posouzení předaných informací $\rightarrow$ Pohovory se zainterestovanými stranami $\rightarrow$ Zpracování podkladů $\rightarrow$ Vyhodnocení podkladů $\rightarrow$ Vypracování posouzení s doporučeními k nápravě $\rightarrow$ Předání závěrečné zprávy, prezentace zákazníkovi
+
+* **Iniciační fáze**
+  * Posuzovaný subjekt si objedná posouzení stavu informační a kybernetické bezpečnosti u své organizace, s hodnotitelem sepíše smlouvu a NDA (důraz na důvěrnost, protože informace, ke kterým se hodnotitel dostane, jsou citlivé).
+  * Následuje kick off meeting, kde jsou přítomni zástupci vedení a  zainteresovaných stran. Stanoví se cíle, priority, časový rámec posouzení, míra spolupráce posuzovaného subjektu (jaké zdroje se vyhradí, kam všude se hodnotitel pustí, …). Hodnotitel seznámí posuzovaný subjekt s průběhem posouzení a vysvětlí tyto fáze. Zároveň se vyjasní komunikační matice a způsob předávání informací mezi hodnotitelem a subjektem (opět důraz na důvěrnost).
+* **Vyžádání dokumentace**
+  * Posuzovaný subjekt je vyzván k předložení veškeré dokumentace a záznamů, které má hodnotitel zkoumat a hodnotit.
+* **Sběr informací**
+  * Sběr informací a podkladových materiálů potřebných ke zjištění stávajícího stavu a k ujasnění rozsahu ISMS.
+  * Věci, co jsou relevantní k bezpečnosti informací, jako je:
+    Práva a povinnosti rolí v organizaci, směrnice, politiky, metodiky, informace o řízení bezpečnosti informací, záznamy, seznam dodavatelů ICT a jejich smlouvy, topologie infrastruktury, provozní informace, popis IS, vše kolem zpracování osobních údajů, fyzická bezpečnost, dodržování předpisů, úroveň povědomí o nich, …
+* **Studium/načtení a posouzení předaných informací**
+  * Časově nejnáročnější fáze.
+  * Hodnotitel vše přečte, přičemž si vytváří komplexní obreaz o fungování posuzované organizace. Pokud mu nějaké informace chybí, požádá o jejich doložení (pokud existují).
+* **Pohovory se zainterestovanými stranami**
+  * Hodnotitel od zaměstnanců posuzovaného subjektu vyžaduje informace, které v předložených materiálech postrádá, doptává se na věci, které je potřeba ujasnit nebo které jsou sporné.
+  * Je potřeba počítat s tím, že zaměstnanci nemusí důležité informace sdělit (protože je to např. nenapadlo, předpokládají, že to je obecná znalost, nechtějí to sdělit, nebo nebyly otázky položeny správně).
+* **Zpracování podkladů**
+  * Hodnotitel zíksané informace zkompletuje, utřídí si je tak, aby mohl posoudit dobře relevanci ve vztahu ke zvolenému rámci posuzování.
+* **Vyhodnocení podkladů** a **vypracování posouzení s doporučeními k nápravě**
+  * Zjištěný faktický stav je porovnán s poždavky stanoveného rámce.
+  * Vyhodnocení zjištěného stavu bod po bodu, jak slovním komentářem, tak i zdůvodněním a uvedením grafického semaforu (barva podle toho jestli je to ok, nebo ne, a jak moc závažné), včetně případných doporučení k nápravě nedostatků. 
+* **Předání závěrečné zprávy, prezentace zákazníkovi**
+  * Závěrečná zpráva předána v elektronické, případně i písemné podobě s dostatečným předstihem (cca 14 dní) následovaná prezentací výsledů ve formě prezentace, v rámci které hodnotitel ukáže výsledky (stravitelnou formou) představitelům hodnocené organizace a následně proběhne diskuze nad zjištěními a možnými opravnými prostředky.
+
+**Proč bývají tyto věci problematické** a jaké se v implementaci ISMS skrývají **překážky**
+
+* Čím větší rozsah ISMS, tím více práce a peněz.
+* Často se setkáme se špatnými předsudky ohledně IT oddělení a jeho sféry působení.
+  * IT je provozní, nikoliv bezpečnostní oddělení, ani nejde o univerzální support. Zájmy IT mohou jít proti bezpečnostním zájmům (např. když je vyžadována častá složitá aktualizace). IT nemůže být zodpovědné za bezpečnost, protože by tím kontrolovalo samo sebe.
+  * Na IT oddělení často padne nejvíc peněz (kromě personálu pod ně spadá celá technika firmy umoŽňující fungování ve všech ostatních odvětvích), ve vedení může být nechuť utrácet na “IT věcech” jako bezpečnost ještě víc peněz.
+* Potenciální legislativní překážky, např. výklad zákonů a nebo spor o tom, který zákon je nadřazený.
+* Potenciální organizační překážky: Nemusí existovat osoba zodpovědná za oblast ISMS, nebo v bezpečnostních rolích nemusí být odborníci na dostatečné úrovni, zaměstnanci neradi přijímají zodpovědné bezpečnostní role, …
+* Odpor lidí k tomu být kontrolován, dokumentován. Management nemusí chápat důležitost informační bezpečnosti, řádoví zaměstnanci nemají rádi změny a nechtějí více odpovědnosti.
+
+**Vydáním posudku to nekončí**
+
+* Posuzovaný subjekt by dál měl pokračovat. Pravidelné skeny zranitelností, pentesty, opatření, analýzy rizik, učit se z chyb, které se časem ukážou, …
+* Informační bezpečnost je kontinuální proces, který nikdy nekončí, a posouzení je jeho součástí.
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# Přednáška 7 [TBD]
+# Přednáška 7
 
-[???]
+[Nebyl záznam. Vytvořeno pouze ze slidů. Které byly v angličtině.]
+
+## Security Operations in real life
+
+V **malé firmě**
+
+* Typicky bez dedikovaného týmu na bezpečnost. Přinejlepším je řešení bezpečnosti one-man show (který to řeší spíš z vlastní iniciativy), často ani to ne. Bezpečnost se řeší v rámci IT oddělení, popřípadě IT adminem. Není vnímána jako až tak důležitá část, spíš jde jen o zálohy a autentizace.
+* Když je tam aspoň jeden člověk, co řeší bezpečnost, je to lepší než nic, ale je to potom pochopitelně limitované na zkušenosti/znalosti pouze jedné osoby.
+* Typicky přístup vedení takový, že se bezpečnost banalizuje (“proč by na nás někdo útočil”), dává se jí minimální budget a minimální lidské zdroje.
+* V takovýchto podmínkách se začne informační bezpečnost brát vážně až po skutečném útoku, nebo po nevydařelém auditu.
+
+Ve **středně velké firmě**
+
+* Malý tým, který je “na všechno” ohledně bezpečnosti a řeší i infrastrukturu, operační aspekty, atd. Není specializovaný, pořád má mezery v kolektivních znalostech.
+* Bezpečnost vnímána jako nezbytné zlo, tým bývá často limitován zdroji a pořádné dostane až pokud dojde k nějakému útoku.
+
+Ve **velké firmě**
+
+* Velký dedikovaný tým/týmy, ne všichni se soustředí pouze na bezpečnost, ale třeba i důvěrnost dat, atd.
+  Už mají prostor soustředit se na různé oblasti bezpečnosti, např.:
+  * **Security Architecture** definuje bezpečnostní politiky/standardy/procesy, provádí analýzu rizik (před vývojem SW především), zabraňuje špatnému návrhu aplikací nebo volbě technologií, co se nehodí do existujícího tech stacku.
+  * **Security Engineering** řeší, aby nástroje a metody, pomocí kterých se vyvíjí a udržují systémy, byly bezpečné. 
+  * **Security Operations Centre** řeší operační aspekty informační bezpečnosti. Koordinují reakci na případné hrozby/incidenty, monitorují je a reportují o nich, analyzují rizika a zranitelnost (za běhu produktu, narozdíl od Sec. Architecture), analyzují bezpečnostní události, řeší notifikace na případné hrozby, …
+  * Další, např. Pentesting tým, CISO, Security Consulting Team, …
+
+Životní cyklus provedení změn v řízení bezpečnosti:
+Navrhnutí změny $\rightarrow$ Analýza dopadu $\rightarrow$ Schválení/Zamítnutí $\rightarrow$ Zavedení změn $\rightarrow$ Zhodnocení/Reportování $\rightarrow$ … (nový cyklus)
+
+**Koncept DevSecOps**
+
+![image-20221204002029961](PV017_vypisky.assets/image-20221204002029961.png)
+
+**Security Framworks**, příklady
+
+* <u>CIS control v8</u>: Zaměřuje se na aktivity (ne na to, kdo spravuje zařízení), obsahuje 153 safeguards a 18 oblastí, kterými pokrývá kritické procesy/aktivity v organizaci (např. data protenction, penetration testing, account management, malware defenses, data recovery, …)
+* <u>The Cybersecurity Framwork (NIST)</u> má tři primární části: *Core* (hierarchický seznam žádoucích výsledků cybersecurity, který funguje jako návod a kontrola), *Profiles* (sladění požadavků, cílů a zdrojů organizace s ideálními výsledky z Core) a *Implementation Tiers* (poskytuje možnosti měření, jak dobře je cybersecurity risk management implementovaný do organizace, úrovně 1 Partial, 2 Risk Informed, 3 Repeatable, 4 Adaptive)
+  * Záznamy v části Core se skládají z popisu výsledku, kterého chceme dosáhnout (např. důvěrnost dat), a popisu, co se bude dělat, aby se nežádoucímu výsledku předešlo, jak bude probíhat případná detekce, reakce a zotavení se.
+  * Framework je založený na rizicích. Vychází z mezinárodních standardů. Adaptovatelný na různé technologie, oblasti, uživatele. Living document.
+* <u>MITRE ATT&CK</u>: The **A**dversial **T**actics, **T**echniques **&** **C**ommon **K**nowledge, cílem je popsat a klasifikovat cyberattacks (based on real-world). Používá se pro zavedení obranných a útočných akcí, monitorování, reportování, atd.

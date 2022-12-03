@@ -1,16 +1,3 @@
-Work in progress.
+7 lectures DONE.
 
-Current state:
-
-* Lecture 1 :heavy_check_mark:
-* Lecture 2 :heavy_check_mark:
-* Lecture 3 :heavy_check_mark:
-* Lecture 4 :heavy_check_mark:
-* Lecture 5 :heavy_check_mark:
-
-* Lecture 6, part 1: :heavy_check_mark:
-
-…
-
-* Lecture 6, part 2: TODO
-* Lecture 7: TODO (if there is lecture 7)
+At this point, it is unclear whether there are more or not.
